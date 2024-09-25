@@ -8,7 +8,7 @@ class Game
     def initialize
         @player_creator = PlayerCreator.new
         @deck = Deck.new
-        @board = Board.new(deck)
+        @board = Board.new(@deck)
     end
 
     def add_players
@@ -17,33 +17,40 @@ class Game
     end
 
     def end_game
-		!board.has_set? && deck.size == 0
+		!@board.has_set? && @deck.size == 0
     end
 
     def start
         puts "Game Start"
         while !end_game
-            board.fill_board
-            board.show_board
+            @board.fill_board
+            @board.show_board
+
+            if end_game
+                break
+            end
+
+            puts "deck remaining: #{@deck.size}"
+
+            @board.print_set
 
             # prompt for which player to choose cards
             puts "which player (1 or 2): "
-            player_in = gets.chomp.to_i - 1
+            player_in = 1
             curr_player = @players[player_in]
 
             # prompt for which cards to be chosen
             puts "which cards (separate with space): "
-            cards_in = gets.chomp
-            cards_index = cards_in.split.map(&:to_i)
-            cards_index -= 1
+            #cards_in = gets.chomp
+            #cards_indices = cards_in.split.map(&:to_i)
+            #cards_indices = cards_indices.map {|num| num - 1}
+            cards_indices = @board.get_indices
             
             # selected three cards, check if set
-            curr_cards = cards_index.map {|index| board.cards_on_board[index]}
-            if board.valid_set?(curr_cards)
+            curr_cards = @board.get_cards(cards_indices)
+            if @board.valid_set?(curr_cards)
                 curr_player.score_up
-                for index in cards_index
-                    board.cards_on_board.delete_at(index)
-                end
+                @board.remove_cards(cards_indices)
             else
                 puts "these three cards do not form a set"
             end

@@ -32,10 +32,14 @@ class Deck
     def draw_cards(count)
         if @deck.size < count
             puts "no enough cards in deck, fail to draw(2)"
-            return nil
+            return
         end
         drawn_cards = @deck.shift(count)
         return drawn_cards
+    end
+
+    def size
+        @deck.size  
     end
 
 end

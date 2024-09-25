@@ -1,5 +1,7 @@
 class Card
 
+    attr_reader :number, :shape, :shading, :color
+
     def initialize(number, shape, shading, color)
         @number = number
         @shape = shape
@@ -12,6 +14,7 @@ class Card
         puts @shape
         puts @shading
         puts @color
+        puts
     end
 
 end
