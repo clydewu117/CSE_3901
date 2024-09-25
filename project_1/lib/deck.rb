@@ -25,19 +25,17 @@ class Deck
         end
 
         # shuffle deck
-        @deck.shuffle!
+        @deck = @deck.shuffle
     
     end
 
+    # draw a given number of cards from the deck
     def draw_cards(count)
-        if @deck.size < count
-            puts "no enough cards in deck, fail to draw(2)"
-            return
-        end
         drawn_cards = @deck.shift(count)
         return drawn_cards
     end
 
+    # return current size of the deck
     def size
         @deck.size  
     end

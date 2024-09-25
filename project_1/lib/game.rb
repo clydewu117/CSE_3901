@@ -16,27 +16,30 @@ class Game
         puts "Welcome #{@players.join(' and ')}"
     end
 
-    def end_game
+    def end_game?
+        # if no more set on board, no remaining cards in deck, game ends
 		!@board.has_set? && @deck.size == 0
     end
 
     def start
         puts "Game Start"
-        while !end_game
+        while !end_game?
             @board.fill_board
             @board.show_board
 
-            if end_game
+            # after refilling the board, check if the game end 
+            if end_game?
                 break
             end
 
+            # show number of remaining cards in deck
             puts "deck remaining: #{@deck.size}"
 
             @board.print_set
 
             # prompt for which player to choose cards
             puts "which player (1 or 2): "
-            player_in = 1
+            player_in = 0
             curr_player = @players[player_in]
 
             # prompt for which cards to be chosen
@@ -55,6 +58,8 @@ class Game
                 puts "these three cards do not form a set"
             end
         end
+
+        # end game 
         puts "Game End"
         puts "player1 score: #{@players[0].score}"
         puts "player2 score: #{@players[1].score}"
