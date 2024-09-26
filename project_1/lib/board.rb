@@ -49,7 +49,7 @@ class Board
                 return true
             end
         end
-        return false
+        false
     end
 
     # check if a given combination of three cards is a set
@@ -76,7 +76,8 @@ class Board
 
     # remove cards from board by given indices
     def remove_cards(indices)
-        indices = indices.reverse
+        # sort and reverse indices to delete from higher index to lower index
+        indices = indices.sort.reverse
         for index in indices
             @cards_on_board.delete_at(index)
         end

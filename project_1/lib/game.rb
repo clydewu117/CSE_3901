@@ -62,7 +62,7 @@ class Game
         puts "Player1 score: #{@players[0].score}"
         puts "Player2 score: #{@players[1].score}"
         if @players[0].score > @players[1].score
-            puts "Player1 win1"
+            puts "Player1 win!"
         elsif @players[0].score < @players[1].score
             puts "Player2 win!"
         else

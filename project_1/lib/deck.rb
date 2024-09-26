@@ -32,12 +32,12 @@ class Deck
     # draw a given number of cards from the deck
     def draw_cards(count)
         drawn_cards = @deck.shift(count)
-        return drawn_cards
+        drawn_cards
     end
 
     # return current size of the deck
     def size
-        @deck.size  
+        @deck.size
     end
 
 end
