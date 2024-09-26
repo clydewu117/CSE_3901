@@ -21,19 +21,19 @@ Basic features of game of set are added into the game, including:
 
 ### Function Directory
 
-    card.rb:
+    **card.rb**:
 
         show_card: display four features of a card
 
 
-    deck.rb:
+    **deck.rb**:
 
         draw_cards: draw a given number of cards from deck
 
         size: return the size of the deck
 
 
-    board.rb:
+    **board.rb**:
 
         fill_board: draw cards to fill the board, or draw cards when no sets on board
 
@@ -50,19 +50,19 @@ Basic features of game of set are added into the game, including:
         remove_cards: remove cards from board by indices
 
 
-    player.rb:
+    **player.rb**:
 
         to_s: return a string of the player's name
 
         score_up: add one to the player's score
 
 
-    player_creator.rb:
+    **player_creator.rb**:
 
         get_players: create two players
 
 
-    game.rb:
+    **game.rb**:
 
         add_players: add two players into the game
 
