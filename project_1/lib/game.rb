@@ -33,42 +33,40 @@ class Game
             end
 
             # show number of remaining cards in deck
-            puts "deck remaining: #{@deck.size}"
-
-            @board.print_set
+            puts "Deck remaining: #{@deck.size}"
 
             # prompt for which player to choose cards
-            puts "which player (1 or 2): "
-            player_in = 0
+            puts "Which player (1 or 2): "
+            player_in = gets.chomp.to_i - 1
             curr_player = @players[player_in]
 
             # prompt for which cards to be chosen
-            puts "which cards (separate with space): "
-            #cards_in = gets.chomp
-            #cards_indices = cards_in.split.map(&:to_i)
-            #cards_indices = cards_indices.map {|num| num - 1}
-            cards_indices = @board.get_indices
+            puts "Which cards (separate with space): "
+            cards_in = gets.chomp
+            cards_indices = cards_in.split.map(&:to_i)
+            cards_indices = cards_indices.map {|num| num - 1}
             
             # selected three cards, check if set
             curr_cards = @board.get_cards(cards_indices)
             if @board.valid_set?(curr_cards)
+                puts "Congrats! these three form a set"
                 curr_player.score_up
                 @board.remove_cards(cards_indices)
             else
-                puts "these three cards do not form a set"
+                puts "Sorry, these three cards do not form a set"
             end
         end
 
         # end game 
         puts "Game End"
-        puts "player1 score: #{@players[0].score}"
-        puts "player2 score: #{@players[1].score}"
+        puts "Player1 score: #{@players[0].score}"
+        puts "Player2 score: #{@players[1].score}"
         if @players[0].score > @players[1].score
-            puts "player1 win"
+            puts "Player1 win1"
         elsif @players[0].score < @players[1].score
-            puts "player2 win"
+            puts "Player2 win!"
         else
-            puts "draw"
+            puts "Draw game!"
         end
     end
 

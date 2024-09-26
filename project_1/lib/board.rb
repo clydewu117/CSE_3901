@@ -15,7 +15,7 @@ class Board
             diff = @board_size - @cards_on_board.size
             puts "Currently #{@cards_on_board.size} cards on board, will draw #{diff} cards"
             if @deck.size < diff
-                puts "no enough cards in deck, fail to draw(1)"
+                puts "No enough cards in deck, fail to draw(1)"
             else
                 @cards_on_board.push(*@deck.draw_cards(diff))
             end
@@ -24,7 +24,7 @@ class Board
         while !has_set?
             puts "Currently no set on board, now #{@cards_on_board.size} cards, will draw 3 cards"
             if @deck.size < 3
-                puts "no enough cards in deck, fail to draw(2)"
+                puts "No enough cards in deck, fail to draw(2)"
                 break
             end
             @cards_on_board.push(*@deck.draw_cards(3))
@@ -33,7 +33,7 @@ class Board
 
     # show each card on board by index
     def show_board
-        puts "cards on board:"
+        puts "Cards on board:"
         count = 1
         for card in @cards_on_board
             puts "card #{count}:"
@@ -80,32 +80,6 @@ class Board
         for index in indices
             @cards_on_board.delete_at(index)
         end
-    end
-
-    # hint for set
-    def print_set
-        for combination in @cards_on_board.combination(3)
-            if valid_set?(combination)
-                puts @cards_on_board.index(combination[0])+1
-                puts @cards_on_board.index(combination[1])+1
-                puts @cards_on_board.index(combination[2])+1
-                break
-            end
-        end
-    end
-
-    # helper function for auto process, removed after test
-    def get_indices
-        indices = []
-        for combination in @cards_on_board.combination(3)
-            if valid_set?(combination)
-                indices.push(@cards_on_board.index(combination[0]))
-                indices.push(@cards_on_board.index(combination[1]))
-                indices.push(@cards_on_board.index(combination[2]))
-                break
-            end
-        end
-        indices
     end
 
 end
