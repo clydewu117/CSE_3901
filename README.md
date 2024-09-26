@@ -1,3 +1,1 @@
-# CSE_3901
-
-# repo created for CSE 3901
+# CSE_3901 AU24
