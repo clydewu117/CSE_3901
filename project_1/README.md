@@ -21,51 +21,51 @@ Basic features of game of set are added into the game, including:
 
 ### Function Directory
 
-    **card.rb**:
+    card.rb:
 
-        show_card: display four features of a card
-
-
-    **deck.rb**:
-
-        draw_cards: draw a given number of cards from deck
-
-        size: return the size of the deck
+            show_card: display four features of a card
 
 
-    **board.rb**:
+    deck.rb:
 
-        fill_board: draw cards to fill the board, or draw cards when no sets on board
+            draw_cards: draw a given number of cards from deck
 
-        show_board: display all cards on board
-
-        has_set?: return if there is set on board
-
-        valid_set?: return if the given combination of cards forms a set
-
-        all_same_or_different?: return if the feature of the three cards are all the same or different
-
-        get_cards: return an array of cards by indices
-
-        remove_cards: remove cards from board by indices
+            size: return the size of the deck
 
 
-    **player.rb**:
+    board.rb:
 
-        to_s: return a string of the player's name
+            fill_board: draw cards to fill the board, or draw cards when no sets on board
 
-        score_up: add one to the player's score
+            show_board: display all cards on board
+
+            has_set?: return if there is set on board
+
+            valid_set?: return if the given combination of cards forms a set
+
+            all_same_or_different?: return if the feature of the three cards are all the same or different
+
+            get_cards: return an array of cards by indices
+
+            remove_cards: remove cards from board by indices
 
 
-    **player_creator.rb**:
+    player.rb:
 
-        get_players: create two players
+            to_s: return a string of the player's name
+
+            score_up: add one to the player's score
 
 
-    **game.rb**:
+    player_creator.rb:
 
-        add_players: add two players into the game
+            get_players: create two players
 
-        end_game?: check if the game should be ended
 
-        start: start the game
+    game.rb:
+
+            add_players: add two players into the game
+
+            end_game?: check if the game should be ended
+
+            start: start the game
